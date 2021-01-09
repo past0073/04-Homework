@@ -10,14 +10,14 @@
 </head>
 <body>
     <header>
-        <h1>JAVASCRIPT QUIZ</h1>
+        <h1 style="text-align: center; color:rgb(255, 0, 0)">JAVASCRIPT QUIZ</h1>
     </header>
     <div id=timer>PRESS START QUIZ TO BEGIN</div>
     <div>
         <button type="button" style="float:right" id="startButton" class="btn btn-primary">Start Quiz</button>
     </div>
     <div>
-        <H3>INSERT QUIZ QUESTIONS</H3>
+        <h3 id="quizQuestion"></h3>
         <ol>
             <li> <span id = "a"></span></li>
             <li> <span id = "b"></span></li>
@@ -29,12 +29,21 @@
     <script>
         var timerEl = document.querySelector("#timer");
         var startButton = document.querySelector("#startButton");
+        var question = document.querySelector("#quizQuestion");
+        var a = document.querySelector("#a");
+        var b = document.querySelector("#b");
+        var c = document.querySelector("#c");
+        var d = document.querySelector("#d");
+        var quizQuestions = ["quiz question0", "quiz question1","quiz question2","quiz question3","quiz question4",]
         
         startButton.addEventListener("click", function myTimer() {
         var timerText = 75;
+        question.textContent = quizQuestions[0];
+      
 
         var timer = setInterval(function myTimer(){
-        timerEl.textContent = timerText;    
+        timerEl.textContent = timerText;  
+
                  
         timerText -=1;
         if(timerText <=0) {
