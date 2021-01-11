@@ -1,0 +1,11 @@
+#startButton {
+    float: right;
+}
+
+section {
+    font-weight: bold;
+    color: rgb(58, 58, 58);
+    }
+li {
+    background-color: lightskyblue;
+}
