@@ -67,17 +67,30 @@
         b.textContent = q0answers[1];
         c.textContent = q0answers[2];
         d.textContent = q0answers[3];
-            c.addEventListener("click", function nextQuestion(questionsAnswers, q1) {
-                question.textContent = [0];
+
+        if (question.textContent = quizQuestions[0]) {
+            c.addEventListener("click", function nextQuestion() {
+                question.textContent = quizQuestions[1];
                 a.textContent = [1];
                 b.textContent = [2];
                 c.textContent = [3];
                 d.textContent = [4];
-            })
-        var timer = setInterval(function myTimer(){
-        timerEl.textContent = timerText;  
+                
+            });
+            a.addEventListener("click", function decrement() {
+                timerText -= 5;    
+            });
+            b.addEventListener("click", function decrement() {
+                timerText -= 5;    
+            });
+            d.addEventListener("click", function decrement() {
+                timerText -= 5;    
+            });
+        };
 
-                 
+
+        var timer = setInterval(function myTimer(){
+        timerEl.textContent = timerText;       
         timerText -=1;
         if(timerText <=0) {
             clearInterval(timer);
