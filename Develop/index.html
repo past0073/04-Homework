@@ -6,7 +6,7 @@
     <title>Javascript Quiz</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="style.css">
     </head>
 <body>
@@ -22,7 +22,7 @@
     <section class="container-md">
         <div class="row">
             <h3 id="quizQuestion"></h3>
-            <ol>
+            <ol id="list">
                 <li> <span id = "a"></span></li>
                 <li> <span id = "b"></span></li>
                 <li> <span id = "c"></span></li>
@@ -40,13 +40,17 @@
         var c = document.querySelector("#c");
         var d = document.querySelector("#d");
         
+        
         //keeping everything separate
         var quizQuestions = ["Question 1", "Question 2","Question 3","Question 4","Question 5",]
         var q0answers = ["a", "b", "correct", "d"];
+        var wrongOne = [a, b, d];
         var q1answers = ["a", "correct", "c", "d"];
         var q2answers = ["a", "b", "c", "correct"];
         var q3answers = ["a", "b", "correct", "d"];
         var q4answers = ["correct", "b", "c", "d"];
+        var answers = [a, b, c, d];
+
 
         //keeping each question and answers together
         // var q1 = ["quiz question1", "a", "b", "c", "d"]
@@ -62,116 +66,132 @@
 
         startButton.addEventListener("click", function myTimer() {
         var timerText = 75;
+        //Start button triggers timer to start counting down from 75 
+        //Sets the first question and answers
         question.textContent = quizQuestions[0];
         a.textContent = q0answers[0];
         b.textContent = q0answers[1];
         c.textContent = q0answers[2];
         d.textContent = q0answers[3];
-
-            // Question 1
-        if (question.textContent === quizQuestions[0]) {    
-            c.addEventListener("click", function () {
+        //Add class to wrong answers
+            for (i=0; i<wrongOne.length; i++) {
+                $(wrongOne[i]).addClass("wrong");
+            };
+            $(".wrong").on("click", function(){
+                timerText -= 5; 
+            });
+        //When right answer is clicked, next question populates
+        //Classes are removed from all answer elements
+            $(c).one("click", function () {
                 question.textContent = quizQuestions[1];
                 a.textContent = q1answers[0];
                 b.textContent = q1answers[1];
                 c.textContent = q1answers[2];
                 d.textContent = q1answers[3];
-              
+                // $("#list").empty();
+            for (i=0; i<answers.length; i++) {
+                $(answers[i]).removeClass();
+            };
             });
-            a.addEventListener("click", function decrement() {
-                timerText -= 5;    
-            });
-            b.addEventListener("click", function decrement() {
-                timerText -= 5;    
-            });
-            d.addEventListener("click", function decrement() {
-                timerText -= 5;    
-            });
+
+
+
+
+
+        //     a.addEventListener("click", function decrement() {
+        //         timerText -= 5;    
+        //     });
+        //     b.addEventListener("click", function decrement() {
+        //         timerText -= 5;    
+        //     });
+        //     d.addEventListener("click", function decrement() {
+        //         timerText -= 5;    
+        //     });
             
-        }
+        // }
         
 
-        //Need to remove event listeners each time
+        // //Need to remove event listeners each time
 
 
-            // Question 2
-        if (question.textContent === quizQuestions[1]) {  
-            b.addEventListener("click", function () {
-                question.textContent = quizQuestions[2];
-                a.textContent = q2answers[0];
-                b.textContent = q2answers[1];
-                c.textContent = q2answers[2];
-                d.textContent = q2answers[3];
+        //     // Question 2
+        // if (question.textContent === quizQuestions[1]) {  
+        //     b.addEventListener("click", function () {
+        //         question.textContent = quizQuestions[2];
+        //         a.textContent = q2answers[0];
+        //         b.textContent = q2answers[1];
+        //         c.textContent = q2answers[2];
+        //         d.textContent = q2answers[3];
                 
-            });
-            a.addEventListener("click", function decrement() {
-                timerText -= 5;    
-            });
-            c.addEventListener("click", function decrement() {
-                timerText -= 5;    
-            });
-            d.addEventListener("click", function decrement() {
-                timerText -= 5;    
-            });
-        }
+        //     });
+        //     a.addEventListener("click", function decrement() {
+        //         timerText -= 5;    
+        //     });
+        //     c.addEventListener("click", function decrement() {
+        //         timerText -= 5;    
+        //     });
+        //     d.addEventListener("click", function decrement() {
+        //         timerText -= 5;    
+        //     });
+        // }
 
-            // Question 3
-        if (question.textContent === quizQuestions[2]) { 
-            d.addEventListener("click", function () {
-                question.textContent = quizQuestions[3];
-                a.textContent = q3answers[0];
-                b.textContent = q3answers[1];
-                c.textContent = q3answers[2];
-                d.textContent = q3answers[3];
+        //     // Question 3
+        // if (question.textContent === quizQuestions[2]) { 
+        //     d.addEventListener("click", function () {
+        //         question.textContent = quizQuestions[3];
+        //         a.textContent = q3answers[0];
+        //         b.textContent = q3answers[1];
+        //         c.textContent = q3answers[2];
+        //         d.textContent = q3answers[3];
                 
-            });
-            a.addEventListener("click", function decrement() {
-                timerText -= 5;    
-            });
-            b.addEventListener("click", function decrement() {
-                timerText -= 5;    
-            });
-            c.addEventListener("click", function decrement() {
-                timerText -= 5;    
-            });
-        }
+        //     });
+        //     a.addEventListener("click", function decrement() {
+        //         timerText -= 5;    
+        //     });
+        //     b.addEventListener("click", function decrement() {
+        //         timerText -= 5;    
+        //     });
+        //     c.addEventListener("click", function decrement() {
+        //         timerText -= 5;    
+        //     });
+        // }
 
-            // Question 4
-        if (question.textContent === quizQuestions[3]) { 
-            c.addEventListener("click", function () {
-                question.textContent = quizQuestions[4];
-                a.textContent = q4answers[0];
-                b.textContent = q4answers[1];
-                c.textContent = q4answers[2];
-                d.textContent = q4answers[3];
+        //     // Question 4
+        // if (question.textContent === quizQuestions[3]) { 
+        //     c.addEventListener("click", function () {
+        //         question.textContent = quizQuestions[4];
+        //         a.textContent = q4answers[0];
+        //         b.textContent = q4answers[1];
+        //         c.textContent = q4answers[2];
+        //         d.textContent = q4answers[3];
                 
-            });
-            a.addEventListener("click", function decrement() {
-                timerText -= 5;    
-            });
-            b.addEventListener("click", function decrement() {
-                timerText -= 5;    
-            });
-            d.addEventListener("click", function decrement() {
-                timerText -= 5;    
-            });
-        }
+        //     });
+        //     a.addEventListener("click", function decrement() {
+        //         timerText -= 5;    
+        //     });
+        //     b.addEventListener("click", function decrement() {
+        //         timerText -= 5;    
+        //     });
+        //     d.addEventListener("click", function decrement() {
+        //         timerText -= 5;    
+        //     });
+        // }
 
-            // Question 5
-        if (question.textContent === quizQuestions[4]) { 
-            a.addEventListener("click", function () {
+        //     // Question 5
+        // if (question.textContent === quizQuestions[4]) { 
+        //     a.addEventListener("click", function () {
                
-            });
-            b.addEventListener("click", function decrement() {
-                timerText -= 5;    
-            });
-            c.addEventListener("click", function decrement() {
-                timerText -= 5;    
-            });
-            d.addEventListener("click", function decrement() {
-                timerText -= 5;    
-            });
-        };
+        //     });
+        //     b.addEventListener("click", function decrement() {
+        //         timerText -= 5;    
+        //     });
+        //     c.addEventListener("click", function decrement() {
+        //         timerText -= 5;    
+        //     });
+        //     d.addEventListener("click", function decrement() {
+        //         timerText -= 5;    
+        //     });
+        // };
 
       
 
