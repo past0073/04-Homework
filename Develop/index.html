@@ -42,23 +42,23 @@
         
         //keeping everything separate
         var quizQuestions = ["quiz question0", "quiz question1","quiz question2","quiz question3","quiz question4",]
-        var q0answers = ["a", "b", "c", "d"];
-        var q1answers = ["a", "b", "c", "d"];
-        var q2answers = ["a", "b", "c", "d"];
-        var q3answers = ["a", "b", "c", "d"];
-        var q4answers = ["a", "b", "c", "d"];
+        var q0answers = ["a", "b", "correct", "d"];
+        var q1answers = ["a", "correct", "c", "d"];
+        var q2answers = ["a", "b", "c", "correct"];
+        var q3answers = ["a", "b", "correct", "d"];
+        var q4answers = ["correct", "b", "c", "d"];
 
         //keeping each question and answers together
-        var q1 = ["quiz question1", "a", "b", "c", "d"]
+        // var q1 = ["quiz question1", "a", "b", "c", "d"]
         
         //keeping all questions and answers together
-        var questionsAnswers = [
-            {q1: ["quiz question one", "answer 1", "answer 2", "answer 3", "answer 4"]},
-            {q2: ["quiz question two", "answer 1", "answer 2", "answer 3", "answer 4"]},
-            {q3: ["quiz question three", "answer 1", "answer 2", "answer 3", "answer 4"]},
-            {q4: ["quiz question four", "answer 1", "answer 2", "answer 3", "answer 4"]},
-            {q5: ["quiz question five", "answer 1", "answer 2", "answer 3", "answer 4"]},
-        ];
+        // var questionsAnswers = [
+        //     {q1: ["quiz question one", "answer 1", "answer 2", "answer 3", "answer 4"]},
+        //     {q2: ["quiz question two", "answer 1", "answer 2", "answer 3", "answer 4"]},
+        //     {q3: ["quiz question three", "answer 1", "answer 2", "answer 3", "answer 4"]},
+        //     {q4: ["quiz question four", "answer 1", "answer 2", "answer 3", "answer 4"]},
+        //     {q5: ["quiz question five", "answer 1", "answer 2", "answer 3", "answer 4"]},
+        // ];
 
         startButton.addEventListener("click", function myTimer() {
         var timerText = 75;
@@ -68,14 +68,14 @@
         c.textContent = q0answers[2];
         d.textContent = q0answers[3];
 
-        if (question.textContent = quizQuestions[0]) {
-            c.addEventListener("click", function nextQuestion() {
+            // Question 1
+        if (question == quizQuestions[0]) {    
+            c.addEventListener("click", function () {
                 question.textContent = quizQuestions[1];
-                a.textContent = [1];
-                b.textContent = [2];
-                c.textContent = [3];
-                d.textContent = [4];
-                
+                a.textContent = q1answers[0];
+                b.textContent = q1answers[1];
+                c.textContent = q1answers[2];
+                d.textContent = q1answers[3];
             });
             a.addEventListener("click", function decrement() {
                 timerText -= 5;    
@@ -85,8 +85,90 @@
             });
             d.addEventListener("click", function decrement() {
                 timerText -= 5;    
-            });
+            })
         };
+            
+            // Question 2
+        if (question == quizQuestions[1]) {    
+            b.addEventListener("click", function () {
+                question.textContent = quizQuestions[2];
+                a.textContent = q2answers[0];
+                b.textContent = q2answers[1];
+                c.textContent = q2answers[2];
+                d.textContent = q2answers[3];
+            });
+            a.addEventListener("click", function decrement() {
+                timerText -= 5;    
+            });
+            c.addEventListener("click", function decrement() {
+                timerText -= 5;    
+            });
+            d.addEventListener("click", function decrement() {
+                timerText -= 5;    
+            })
+        };
+
+            // Question 3
+        if (question == quizQuestions[2]) { 
+            d.addEventListener("click", function () {
+                question.textContent = quizQuestions[3];
+                a.textContent = q3answers[0];
+                b.textContent = q3answers[1];
+                c.textContent = q3answers[2];
+                d.textContent = q3answers[3];
+            });
+            a.addEventListener("click", function decrement() {
+                timerText -= 5;    
+            });
+            b.addEventListener("click", function decrement() {
+                timerText -= 5;    
+            });
+            c.addEventListener("click", function decrement() {
+                timerText -= 5;    
+            })
+        };
+
+            // Question 4
+        if (question == quizQuestions[3]) { 
+            c.addEventListener("click", function () {
+                question.textContent = quizQuestions[4];
+                a.textContent = q4answers[0];
+                b.textContent = q4answers[1];
+                c.textContent = q4answers[2];
+                d.textContent = q4answers[3];
+            });
+            a.addEventListener("click", function decrement() {
+                timerText -= 5;    
+            });
+            b.addEventListener("click", function decrement() {
+                timerText -= 5;    
+            });
+            d.addEventListener("click", function decrement() {
+                timerText -= 5;    
+            })
+        };
+
+            // Question 5
+        if (question == quizQuestions[4]) { 
+            a.addEventListener("click", function () {
+                question.textContent = quizQuestions[5];
+                a.textContent = q5answers[0];
+                b.textContent = q5answers[1];
+                c.textContent = q5answers[2];
+                d.textContent = q5answers[3];
+            });
+            b.addEventListener("click", function decrement() {
+                timerText -= 5;    
+            });
+            c.addEventListener("click", function decrement() {
+                timerText -= 5;    
+            });
+            d.addEventListener("click", function decrement() {
+                timerText -= 5;    
+            })
+        };
+
+      
 
 
         var timer = setInterval(function myTimer(){
