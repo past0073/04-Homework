@@ -11,7 +11,7 @@
     </head>
 <body>
     <header>
-        <h1 style="text-align: center; color:rgb(255, 0, 0)">JAVASCRIPT QUIZ</h1>
+        <h1 style="text-align: center; color:rgb(255, 0, 0)">737-800 EMERGENCY PROCEDURES AND LIMITATIONS QUIZ</h1>
     </header>
     <div class="container-md">
     
@@ -42,12 +42,12 @@
         
         
         //keeping everything separate
-        var quizQuestions = ["Question 1", "Question 2","Question 3","Question 4","Question 5",]
-        var q0answers = ["a", "b", "correct", "d"];
-        var q1answers = ["a", "correct", "c", "d"];
-        var q2answers = ["a", "b", "c", "correct"];
-        var q3answers = ["a", "b", "correct", "d"];
-        var q4answers = ["correct", "b", "c", "d"];
+        var quizQuestions = ["What is the first memory item in a rapid decompression?", "What is the maximum autoland crosswind component?","Which answer is NOT correct for a condition that engine ignition must be set to CONT?","Which of the following is NOT a memory item for a CARGO FIRE (MAIN)?","When in flight, how does the toilet flush?"]
+        var q0answers = ["Establish crew communication", "Close the outflow valve", "Don oxygen mask", "Drop the passenger masks"];
+        var q1answers = ["10 knots", "15 knots", "25 knots", "40 knots"];
+        var q2answers = ["Severe turbulence", "landing", "takeoff", "Mountain wave"];
+        var q3answers = ["Don oxygen mask", "Establish crew communication", "L PACK switch to AUTO", "Close the flight deck door"];
+        var q4answers = ["A valve opens, allowing differential pressure to create a vacuum", "Magic beans", "Gravity fed", "Vacuum pump located behind the aft pressure bulkhead"];
         
 
 
@@ -200,7 +200,7 @@
         if(timerText <=0) {
             clearInterval(timer);
             timerEl.innerHTML = "Time's up!!";
-            //CLEAR QUIZ
+            
         }
         },1000);
 
