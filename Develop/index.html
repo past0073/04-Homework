@@ -20,7 +20,7 @@
         <button type="button" id="startButton" class="btn btn-primary">Start Quiz</button>
     </div>
     <section class="container-md">
-        <div class="row">
+        <div id="quizEnd" class="row">
             <h3 id="quizQuestion"></h3>
             <ol id="list">
                 <li> <span id = "a"></span></li>
@@ -44,12 +44,11 @@
         //keeping everything separate
         var quizQuestions = ["Question 1", "Question 2","Question 3","Question 4","Question 5",]
         var q0answers = ["a", "b", "correct", "d"];
-        var wrongOne = [a, b, d];
         var q1answers = ["a", "correct", "c", "d"];
         var q2answers = ["a", "b", "c", "correct"];
         var q3answers = ["a", "b", "correct", "d"];
         var q4answers = ["correct", "b", "c", "d"];
-        var answers = [a, b, c, d];
+        
 
 
         startButton.addEventListener("click", function myTimer() {
@@ -169,6 +168,17 @@
             var questionFive = function() {
             a.addEventListener("click", function () {
                //Remove all text and alert YOU WIN!
+               $("#list").remove();
+               $("#startButton").remove();
+               $("#quizQuestion").remove();
+               $("#quizEnd").append("<h2>CONGRATULATIONS, YOU WIN!!</h2>");
+               $("#quizEnd").append("<p>Your score: <span></span> </p>");
+               $("#quizEnd").append("<p>Enter Initials: <input> </p>");
+               $("span").html(timerText);
+               $("h2").addClass("winner");
+               $("p").addClass("score");
+               $("#timer").hide();
+               input.html(type="text");
             });
             b.addEventListener("click", function () {
                 timerText -= 5;    
