@@ -52,18 +52,6 @@
         var answers = [a, b, c, d];
 
 
-        //keeping each question and answers together
-        // var q1 = ["quiz question1", "a", "b", "c", "d"]
-        
-        //keeping all questions and answers together
-        // var questionsAnswers = [
-        //     {q1: ["quiz question one", "answer 1", "answer 2", "answer 3", "answer 4"]},
-        //     {q2: ["quiz question two", "answer 1", "answer 2", "answer 3", "answer 4"]},
-        //     {q3: ["quiz question three", "answer 1", "answer 2", "answer 3", "answer 4"]},
-        //     {q4: ["quiz question four", "answer 1", "answer 2", "answer 3", "answer 4"]},
-        //     {q5: ["quiz question five", "answer 1", "answer 2", "answer 3", "answer 4"]},
-        // ];
-
         startButton.addEventListener("click", function myTimer() {
         var timerText = 75;
         //Start button triggers timer to start counting down from 75 
@@ -73,125 +61,125 @@
         b.textContent = q0answers[1];
         c.textContent = q0answers[2];
         d.textContent = q0answers[3];
-        //Add class to wrong answers
-            for (i=0; i<wrongOne.length; i++) {
-                $(wrongOne[i]).addClass("wrong");
-            };
-            $(".wrong").on("click", function(){
-                timerText -= 5; 
-            });
+        
         //When right answer is clicked, next question populates
         //Classes are removed from all answer elements
-            $(c).one("click", function () {
+            $(c).on("click", function () {
                 question.textContent = quizQuestions[1];
                 a.textContent = q1answers[0];
                 b.textContent = q1answers[1];
                 c.textContent = q1answers[2];
                 d.textContent = q1answers[3];
-                // $("#list").empty();
-            for (i=0; i<answers.length; i++) {
-                $(answers[i]).removeClass();
-            };
+                $(a).off();
+                $(b).off();
+                $(c).off();
+                $(d).off();
+                questionTwo();
             });
+              
 
+            $(a).on("click", function () {
+                timerText -= 5;    
+            });
+            $(b).on("click", function () {
+                timerText -= 5;    
+            });
+            $(d).on("click", function () {
+                timerText -= 5;    
+            });
+       
 
-
-
-
-        //     a.addEventListener("click", function decrement() {
-        //         timerText -= 5;    
-        //     });
-        //     b.addEventListener("click", function decrement() {
-        //         timerText -= 5;    
-        //     });
-        //     d.addEventListener("click", function decrement() {
-        //         timerText -= 5;    
-        //     });
-            
-        // }
+            // Question 2
+        var questionTwo = function() {
+            $(b).on("click", function () {
+                question.textContent = quizQuestions[2];
+                a.textContent = q2answers[0];
+                b.textContent = q2answers[1];
+                c.textContent = q2answers[2];
+                d.textContent = q2answers[3];
+                $(a).off();
+                $(b).off();
+                $(c).off();
+                $(d).off();
+                questionThree();
+            });
+            $(a).on("click", function () {
+                timerText -= 5;    
+            });
+            $(c).on("click", function () {
+                timerText -= 5;    
+            });
+            $(d).on("click", function () {
+                timerText -= 5;    
+            })};
         
 
-        // //Need to remove event listeners each time
+            // Question 3
+            var questionThree = function() {
+                $(d).on("click", function () {
+                question.textContent = quizQuestions[3];
+                a.textContent = q3answers[0];
+                b.textContent = q3answers[1];
+                c.textContent = q3answers[2];
+                d.textContent = q3answers[3];
+                $(a).off();
+                $(b).off();
+                $(c).off();
+                $(d).off();
+                questionFour();
+            });
+            $(a).on("click", function () {
+                timerText -= 5;    
+            });
+            $(b).on("click", function () {
+                timerText -= 5;    
+            });
+            $(c).on("click", function () {
+                timerText -= 5;    
+            })};
+        
 
 
-        //     // Question 2
-        // if (question.textContent === quizQuestions[1]) {  
-        //     b.addEventListener("click", function () {
-        //         question.textContent = quizQuestions[2];
-        //         a.textContent = q2answers[0];
-        //         b.textContent = q2answers[1];
-        //         c.textContent = q2answers[2];
-        //         d.textContent = q2answers[3];
-                
-        //     });
-        //     a.addEventListener("click", function decrement() {
-        //         timerText -= 5;    
-        //     });
-        //     c.addEventListener("click", function decrement() {
-        //         timerText -= 5;    
-        //     });
-        //     d.addEventListener("click", function decrement() {
-        //         timerText -= 5;    
-        //     });
-        // }
+            // Question 4
+            var questionFour = function() {
+                $(c).on("click", function () {
+                question.textContent = quizQuestions[4];
+                a.textContent = q4answers[0];
+                b.textContent = q4answers[1];
+                c.textContent = q4answers[2];
+                d.textContent = q4answers[3];
+                $(a).off();
+                $(b).off();
+                $(c).off();
+                $(d).off();
+                questionFive();
+            });
+            $(a).on("click", function () {
+                timerText -= 5;    
+            });
+            $(b).on("click", function () {
+                timerText -= 5;    
+            });
+            $(d).on("click", function () {
+                timerText -= 5;    
+            })};
+        
 
-        //     // Question 3
-        // if (question.textContent === quizQuestions[2]) { 
-        //     d.addEventListener("click", function () {
-        //         question.textContent = quizQuestions[3];
-        //         a.textContent = q3answers[0];
-        //         b.textContent = q3answers[1];
-        //         c.textContent = q3answers[2];
-        //         d.textContent = q3answers[3];
-                
-        //     });
-        //     a.addEventListener("click", function decrement() {
-        //         timerText -= 5;    
-        //     });
-        //     b.addEventListener("click", function decrement() {
-        //         timerText -= 5;    
-        //     });
-        //     c.addEventListener("click", function decrement() {
-        //         timerText -= 5;    
-        //     });
-        // }
-
-        //     // Question 4
-        // if (question.textContent === quizQuestions[3]) { 
-        //     c.addEventListener("click", function () {
-        //         question.textContent = quizQuestions[4];
-        //         a.textContent = q4answers[0];
-        //         b.textContent = q4answers[1];
-        //         c.textContent = q4answers[2];
-        //         d.textContent = q4answers[3];
-                
-        //     });
-        //     a.addEventListener("click", function decrement() {
-        //         timerText -= 5;    
-        //     });
-        //     b.addEventListener("click", function decrement() {
-        //         timerText -= 5;    
-        //     });
-        //     d.addEventListener("click", function decrement() {
-        //         timerText -= 5;    
-        //     });
-        // }
-
-        //     // Question 5
-        // if (question.textContent === quizQuestions[4]) { 
-        //     a.addEventListener("click", function () {
-               
-        //     });
-        //     b.addEventListener("click", function decrement() {
-        //         timerText -= 5;    
-        //     });
-        //     c.addEventListener("click", function decrement() {
-        //         timerText -= 5;    
-        //     });
-        //     d.addEventListener("click", function decrement() {
-        //         timerText -= 5;    
-        //     });
-        // };
+            // Question 5
+            var questionFive = function() {
+            a.addEventListener("click", function () {
+               //Remove all text and alert YOU WIN!
+            });
+            b.addEventListener("click", function () {
+                timerText -= 5;    
+            });
+            c.addEventListener("click", function () {
+                timerText -= 5;    
+            });
+            d.addEventListener("click", function () {
+                timerText -= 5;    
+            })};
+        
 
       
 
@@ -201,7 +189,8 @@
         timerText -=1;
         if(timerText <=0) {
             clearInterval(timer);
-            timerEl.innerHTML = "Time's up!!"
+            timerEl.innerHTML = "Time's up!!";
+            //CLEAR QUIZ
         }
         },1000);
 
