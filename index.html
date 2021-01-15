@@ -29,6 +29,8 @@
                 <li> <span id = "d"></span></li>
             </ol>
         </div>
+        <div id="submit"></div>
+        <div id="highScore"></div>
     </section>
     </div>
     <script>
@@ -173,8 +175,8 @@
                $("#quizQuestion").remove();
                $("#quizEnd").append("<h2>CONGRATULATIONS, YOU WIN!!</h2>");
                $("#quizEnd").append("<p>Your score: <span></span> </p>");
-               $("#quizEnd").append("<p>Enter Initials: <input> </p>");
-               $("#quizEnd").appendChild(
+               $("#quizEnd").append("<p>Enter Initials: <input id='score'> </p>");
+               $("#submit").append("<input type='submit'>");
                $("span").html(timerText);
                $("h2").addClass("winner");
                $("p").addClass("score");
@@ -191,7 +193,12 @@
                 timerText -= 5;    
             })};
         
-
+            $("#submit").on("click", function(){
+                $("#quizEnd").remove();
+                $("#submit").remove();
+                $("#highScore").append("<h1>HIGH SCORES!</h1>");
+                $("#highScore").append("<input>");
+            })
       
 
 
