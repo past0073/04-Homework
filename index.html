@@ -43,7 +43,7 @@
         var d = document.querySelector("#d");
         
         
-        //keeping everything separate
+        // Assign variables to arrays of quiz questions and answers
         var quizQuestions = ["What is the first memory item in a rapid decompression?", "What is the maximum autoland crosswind component?","Which answer is NOT correct for a condition that engine ignition must be set to CONT?","Which of the following is NOT a memory item for a CARGO FIRE (MAIN)?","When in flight, how does the toilet flush?"]
         var q0answers = ["Establish crew communication", "Close the outflow valve", "Don oxygen mask", "Drop the passenger masks"];
         var q1answers = ["10 knots", "15 knots", "25 knots", "40 knots"];
@@ -52,11 +52,11 @@
         var q4answers = ["A valve opens, allowing differential pressure to create a vacuum", "Magic beans", "Gravity fed", "Vacuum pump located behind the aft pressure bulkhead"];
         
 
-
-        startButton.addEventListener("click", function myTimer() {
-        var timerText = 75;
         //Start button triggers timer to start counting down from 75 
         //Sets the first question and answers
+        startButton.addEventListener("click", function myTimer() {
+        var timerText = 75;
+        
         question.textContent = quizQuestions[0];
         a.textContent = q0answers[0];
         b.textContent = q0answers[1];
@@ -174,14 +174,14 @@
                $("#startButton").remove();
                $("#quizQuestion").remove();
                $("#quizEnd").append("<h2>CONGRATULATIONS, YOU WIN!!</h2>");
-               $("#quizEnd").append("<p>Your score: <span></span> </p>");
+               $("#quizEnd").append("<p>Your score: <span id='score'></span> </p>");
                $("#quizEnd").append("<p>Enter Initials: <input id='score'> </p>");
                $("#submit").append("<input type='submit'>");
                $("span").html(timerText);
                $("h2").addClass("winner");
                $("p").addClass("score");
                $("#timer").hide();
-               input.html(type="text");
+               
             });
             b.addEventListener("click", function () {
                 timerText -= 5;    
@@ -192,13 +192,13 @@
             d.addEventListener("click", function () {
                 timerText -= 5;    
             })};
-        
+        // When submit is clicked, bring user to "HIGH SCORES" screen
             $("#submit").on("click", function(){
                 $("#quizEnd").remove();
                 $("#submit").remove();
                 $("#highScore").append("<h1>HIGH SCORES!</h1>");
-                $("#highScore").append("<input>");
-            })
+                $("#highScore").append("<input id='initials'>");
+            });
       
 
 
